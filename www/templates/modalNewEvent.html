@@ -1,0 +1,78 @@
+<ion-modal-view>
+	<ion-header-bar class="bar bar-header bar-dark">
+    	<h1 class="title" ng-if="!newEvent.class">Cadastrar Evento</h1>
+        <h1 class="title" ng-if="newEvent.class">Cadastrar Aula</h1>
+        <button class="button button-clear button-light icon ion-close-circled" ng-click="modalNewEvent.hide()">
+        </button>
+ 	</ion-header-bar>
+	<ion-content scroll="" class="text-center">
+        <img ng-if="newEvent.img && !newEvent.class" class="add-img pointer" src="{{newEvent.img}}"
+        ng-click="addImage(0)">
+        <form name="myForm" ng-submit="createEvent()" class="text-left">
+            <div class="list">
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label" ng-if="!newEvent.class">Evento</span>
+                    <span class="input-label" ng-if="newEvent.class">Aula</span>
+                    <input type="text" name="name" placeholder="Evento..." ng-model="newEvent.name" 
+                    ng-if="!newEvent.class" required/>
+                    <input type="text" name="name" placeholder="Aula..." ng-model="newEvent.name" 
+                    ng-if="newEvent.class" required/>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Descrição</span>
+                    <input type="text" placeholder="Descrição..." ng-model="newEvent.description" required/>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Local</span>
+                    <input type="text" placeholder="Local..." ng-model="newEvent.local" required/>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Hora</span>
+                    <input type="time" ng-model="newEvent.time" required/>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Data</span>
+                    <input type="date" ng-model="newEvent.date" required/>
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">Frequência</div>
+                    <select ng-model="newEvent.often">
+                        <option value="1">Único</option>
+                        <option value="2">Diário</option>
+                        <option value="3">Semanal</option>
+                    </select>
+                </label>
+                <ion-list ng-if="newEvent.often == 3" class="text-center">
+                    <ion-checkbox ng-model="newEvent.days.zero" class="daysCheckbox" ng-change="checkWeek(0)">
+                        Seg/Sexta
+                    </ion-checkbox>
+                    <ion-checkbox ng-model="newEvent.days.one" class="daysCheckbox">
+                        Domingo
+                    </ion-checkbox>
+                    <ion-checkbox ng-model="newEvent.days.two" class="daysCheckbox" ng-change="checkDay(0)">
+                        Segunda
+                    </ion-checkbox>
+                    <ion-checkbox ng-model="newEvent.days.three" class="daysCheckbox" ng-change="checkDay(0)">
+                        Terça
+                    </ion-checkbox>
+                    <ion-checkbox ng-model="newEvent.days.four" class="daysCheckbox" ng-change="checkDay(0)">
+                        Quarta
+                    </ion-checkbox>
+                    <ion-checkbox ng-model="newEvent.days.five" class="daysCheckbox" ng-change="checkDay(0)">
+                        Quinta
+                    </ion-checkbox>
+                    <ion-checkbox ng-model="newEvent.days.six" class="daysCheckbox" ng-change="checkDay(0)">
+                        Sexta
+                    </ion-checkbox>
+                    <ion-checkbox ng-model="newEvent.days.seven" class="daysCheckbox">
+                        Sábado
+                    </ion-checkbox>
+                </ion-list>
+            </div>
+            <button class="button button-block button-positive" ng-click="submit">
+                <span ng-if="!newEvent.class">Cadastrar Novo Evento</span>
+                <span ng-if="newEvent.class">Cadastrar Nova Aula</span>
+            </button>
+        </form>
+	  </ion-content>
+</ion-modal-view>

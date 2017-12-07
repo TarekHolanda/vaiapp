@@ -1,0 +1,69 @@
+<ion-view title="Minha Conta">
+<ion-nav-bar class="bar-dark">
+    
+</ion-nav-bar>
+<ion-nav-buttons side="right">
+    <button class="button button-clear button-light icon ion-close-circled"
+    ng-click="goLogin()" ng-if="!logged && registering"></button>
+</ion-nav-buttons>
+<ion-content class="padding" scroll="false">
+<button class="button button-calm icon ion-plus-round new-item" style="left: 2% !important;" ng-click="goNewEvent(1)"></button>
+    <div ng-if="logged && !registering" class="card">
+        <div class="item item-divider">
+            Olá {{user.firstName}}
+            </div>
+            <div class="item item-text-wrap">
+                Clique no botão "+" para cadastrar aulas ou eventos
+            </div>
+            <div class="item item-divider">
+                Email: {{user.email}}
+            </div>
+        <button class="button button-calm icon ion-plus-round new-item" ng-click="chooseNewEvent()"></button>
+    </div>
+
+    <div ng-if="!logged && !registering" class="text-center">
+        <h2>Bem vindo</h2>
+        <h3>Entre com suas credenciais para gerenciar seus eventos</h3>
+        <form name="myForm" ng-submit="loginUser()">
+            <div class="list list-inset">
+                <label class="item item-input">
+                <input type="email" placeholder="Email" ng-model="user.email" required />
+                </label>
+                <label class="item item-input">
+                <input type="password" placeholder="Senha" ng-model="user.password" required />
+                </label>
+            </div>
+            <button class="button button-block button-positive" ng-click="submit">Entrar</button>
+            <a class="positive" ng-click="goRegister()">Cadastrar Novo Usuário</a>
+        </form>
+    </div>
+
+    <div ng-if="!logged && registering" class="text-center">
+        <h3>Registro de novo usuário</h3>
+        <form name="myForm" ng-submit="registerUser()">
+            <div class="list list-inset">
+                <label class="item item-input">
+                    <input type="text" name="firstName" class="form-control" ng-model="user.firstName" 
+                    placeholder="Nome" required/>
+                </label>
+                <label class="item item-input">
+                    <input type="text" name="lastName" class="form-control" ng-model="user.lastName" 
+                    placeholder="Sobrenome" required/>
+                </label>
+                <label class="item item-input">
+                    <input type="email" name="email" class="form-control" ng-model="user.email" 
+                    placeholder="Email" required/>
+                </label>
+                <label class="item item-input">
+                    <input type="password" placeholder="Senha" ng-model="user.password" required />
+                </label>
+                <label class="item item-input">
+                    <input type="password" name="confirmPassword" class="form-control" ng-model="user.confirmPassword"
+                    placeholder="Confirmar Senha" required />
+                </label>
+            </div>
+            <button class="button button-block button-positive" ng-click="submit">Registrar Usuário</button>
+        </form>
+    </div>
+</ion-content>
+</ion-view>

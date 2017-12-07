@@ -1,0 +1,42 @@
+<ion-modal-view>
+	<ion-header-bar class="bar bar-header bar-dark">
+    	<h1 class="title">{{event.name}}</h1>
+      <button class="button button-clear button-light icon ion-close-circled" ng-click="modalEvent.hide()"></button>
+ 	</ion-header-bar>
+	<ion-content scroll="" class="padding text-center">
+        <img ng-if="event.img && !event.class" class="event-img" src="{{event.img}}">
+        <img ng-if="!event.img && !event.class" class="event-img" src="img/ionic.png">
+        <div class="button-bar" ng-if="event.often == 3">
+<a class="button button-full button-small" ng-class="event.days.one ? 'button-positive' : 'button-assertive'">D</a>
+<a class="button button-full button-small" ng-class="event.days.two ? 'button-positive' : 'button-assertive'">S</a>
+<a class="button button-full button-small" ng-class="event.days.three ? 'button-positive' : 'button-assertive'">T</a>
+<a class="button button-full button-small" ng-class="event.days.four ? 'button-positive' : 'button-assertive'">Q</a>
+<a class="button button-full button-small" ng-class="event.days.five ? 'button-positive' : 'button-assertive'">Q</a>
+<a class="button button-full button-small" ng-class="event.days.six ? 'button-positive' : 'button-assertive'">S</a>
+<a class="button button-full button-small" ng-class="event.days.seven ? 'button-positive' : 'button-assertive'">S</a>
+        </div>
+        <div class="card">
+            <div class="item item-divider">
+                <span ng-if="event.often == 1">Dia {{event.date | date: 'dd/MM/yyyy'}},</span>
+                <span ng-if="event.often == 2">Todos os dias,</span>
+                <span ng-if="event.often == 3">A partir do dia {{event.date | date: 'dd/MM/yyyy'}},</span>
+                às {{event.time | date: 'hh:mm a'}}
+            </div>
+            <div class="item item-text-wrap">
+                {{event.description}}
+            </div>
+            <div class="item item-divider">
+                Local: {{event.local}}
+            </div>
+        </div>
+        <!--button class="button button-assertive margin-top margin-bottom" ng-click="confirmDeleteEvent()"
+        style="position: fixed; top: 100%; left: 10px; width: 45%;">Excluir</button>
+
+        <button class="button button-positive margin-bottom margin-top" ng-click="goEditEvent()"
+        style="position: absolute; top: 100%; right: 10px; width: 45%;">Editar</button-->
+	</ion-content>
+    <div class="bar bar-footer" ng-if="!event.class || (event.class && user.id == event.user_id)">
+        <button class="button button-assertive" style="width: 45%;" ng-click="confirmDeleteEvent()">Excluir</button>
+        <button class="button button-positive" style="width: 45%;" ng-click="goEditEvent()">Editar</button>
+    </div>
+</ion-modal-view>

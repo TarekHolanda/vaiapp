@@ -1,0 +1,18 @@
+<ion-view view-title="Aulas">
+<ion-nav-bar class="bar-dark">
+    
+</ion-nav-bar>
+<ion-content class="" scroll="">
+    <div ng-repeat="class in classes" ng-if="classes">
+        <button ion-item class="item item-avatar item-thumbnail-left button-block item-text-wrap"
+        ng-click="openEvent(true, $index)">
+            <img src="img/class.png">
+            <h2>{{class.name}}</h2>
+            <p>{{class.description}}</p>
+        </button>
+    </div>
+        <div ng-if="!classes.length" class="text-center margin-top">
+            <h4>Nenhuma aula cadastrada</h4>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,96 @@
+/* Empty. Add your own CSS if you like */
+.new-item {
+	position: absolute;
+	right: 3%;
+	bottom: 2%;
+	z-index: 100;
+	border-radius: 100%;
+}
+.cancel-create {
+	position: absolute;
+	right: 20px;
+	font-size: 14px;
+	bottom: 13px;
+	color:#ef4e3a;
+}
+[ng-click], [data-ng-click], [x-ng-click] {
+    cursor: pointer;
+}
+.error {
+	border-color: red;
+}
+.margin-top {
+	margin-top: 10%;
+}
+.margin-bottom {
+	margin-bottom: 10%;
+}
+.margin-top-10 {
+	margin-top: 10px;
+}
+.margin-bottom-10 {
+	margin-bottom: 10px;
+}
+.text-center {
+	text-align: center;
+}
+.text-right {
+	text-align: right;
+}
+.text-left {
+	text-align: left;
+}
+/* Ionic Overwrite! */
+.item-icon-left .icon, .item-icon-right .icon {
+	font-size: 22px;
+}
+.pointer {
+	cursor: pointer;
+}
+.face-btn {
+	background-color: #3b5998;
+	font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+	color: white;
+}
+.register-btn {
+	position: fixed;
+	left: 3%;
+	bottom: 2%;
+	z-index: 100;
+	width: 45%;
+}
+.login-btn {
+	position: fixed;
+	right: 3%;
+	bottom: 2%;
+	z-index: 100;
+	width: 45%;
+}
+.criar-user-btn {
+	position: fixed;
+	right: 3%;
+	bottom: 10%;
+	z-index: 100;
+	width: 45%;
+}
+.cancel-user-btn {
+	position: fixed;
+	left: 3%;
+	bottom: 10%;
+	z-index: 100;
+	width: 45%;
+}
+.daysCheckbox {
+	width: 50%;
+	float: left;
+}
+.event-img {
+	max-width: 100%;
+	max-height: 40% !important;
+}
+.add-img {
+	width: 50%;
+}
+.pointer {
+	cursor: pointer;
+}

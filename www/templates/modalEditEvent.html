@@ -1,0 +1,71 @@
+<ion-modal-view>
+	<ion-header-bar class="bar bar-header bar-dark">
+        <h1 class="title" ng-if="!event.class">Editar Evento</h1>
+        <h1 class="title" ng-if="event.class">Editar Aula</h1>
+        <button class="button button-clear button-light icon ion-close-circled" ng-click="modalEditEvent.hide()">
+        </button>
+ 	</ion-header-bar>
+	<ion-content scroll="" class="text-center">
+        <img ng-if="event.img && !event.class" class="full-image pointer padding" src="{{event.img}}"
+        ng-click="addImage(0)">
+        <form name="myForm" ng-submit="salvarEdit()" class="text-left">
+            <div class="list">
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label" ng-if="!event.class">Evento</span>
+                    <span class="input-label" ng-if="event.class">Aula</span>
+                    <input type="text" name="name" placeholder="Evento..." ng-model="event.name" 
+                    ng-if="!event.class" required/>
+                    <input type="text" name="name" placeholder="Aula..." ng-model="event.name" 
+                    ng-if="event.class" required/>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Descrição</span>
+                    <input type="text" placeholder="Descrição..." ng-model="event.description" required/>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Local</span>
+                    <input type="text" placeholder="Local..." ng-model="event.local" required/>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Hora</span>
+                    <input type="time" ng-model="event.time" required/>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Data</span>
+                    <input type="date" ng-model="event.date" required/>
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">Frequência</div>
+                    <select data-ng-options="option.name for option in options" data-ng-model="selected"></select>
+                </label>
+                <ion-list ng-if="event.often == 3" class="text-center">
+                    <ion-checkbox ng-model="event.days.zero" class="daysCheckbox" ng-change="checkWeek(1)">
+                        Seg/Sexta
+                    </ion-checkbox>
+                    <ion-checkbox ng-model="event.days.one" class="daysCheckbox">
+                        Domingo
+                    </ion-checkbox>
+                    <ion-checkbox ng-model="event.days.two" class="daysCheckbox" ng-change="checkDay(1)">
+                        Segunda
+                    </ion-checkbox>
+                    <ion-checkbox ng-model="event.days.three" class="daysCheckbox" ng-change="checkDay(1)">
+                        Terça
+                    </ion-checkbox>
+                    <ion-checkbox ng-model="event.days.four" class="daysCheckbox" ng-change="checkDay(1)">
+                        Quarta
+                    </ion-checkbox>
+                    <ion-checkbox ng-model="event.days.five" class="daysCheckbox" ng-change="checkDay(1)">
+                        Quinta
+                    </ion-checkbox>
+                    <ion-checkbox ng-model="event.days.six" class="daysCheckbox" ng-change="checkDay(1)">
+                        Sexta
+                    </ion-checkbox>
+                    <ion-checkbox ng-model="event.days.seven" class="daysCheckbox">
+                        Sábado
+                    </ion-checkbox>
+                </ion-list>
+            </div>
+            <button class="button button-block button-positive" ng-click="submit">Salvar Alterações</button>
+        </form>
+	  </ion-content>
+</ion-modal-view>

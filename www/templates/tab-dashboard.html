@@ -1,0 +1,19 @@
+<ion-view view-title="Eventos">
+<ion-nav-bar class="bar-dark">
+    
+</ion-nav-bar>
+<ion-content class="" scroll="">
+    <div ng-repeat="event in events" ng-if="events">
+        <button ion-item class="item item-avatar item-thumbnail-left button-block"
+        ng-click="openEvent(false, $index)">
+            <img ng-if="event.img" src="{{event.img}}">
+            <img ng-if="!event.img" src="img/ionic.png">
+            <h2>{{event.name}}</h2>
+            <p>{{event.description}}</p>
+        </button>
+    </div>
+    <div ng-if="!events.length" class="text-center margin-top">
+        <h4>Nenhum evento cadastrado</h4>
+    </div>
+</ion-content>
+</ion-view>
